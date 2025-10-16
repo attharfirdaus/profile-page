@@ -1,8 +1,14 @@
 import { User } from "@/type";
+import { motion } from "framer-motion";
 
 export default function AddressSection({ user }: { user: User }) {
   return (
-    <div className="bg-black rounded-2xl flex flex-col gap-6 p-8 w-full">
+    <motion.div
+      className="bg-gray-900 rounded-2xl flex flex-col gap-6 p-8 w-full"
+      initial={{ opacity: 0, y: -100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+    >
       <div className="flex flex-row w-full gap-2">
         <div className="min-h-full w-[6px] rounded-full bg-teal-500"></div>
         <h1 className="text-2xl font-medium text-teal-500">Address</h1>
@@ -39,6 +45,6 @@ export default function AddressSection({ user }: { user: User }) {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

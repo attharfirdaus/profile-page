@@ -1,10 +1,16 @@
 import Image from "next/image";
 import Iconify from "./Iconify";
 import { User } from "@/type";
+import { motion } from "framer-motion";
 
 export default function ProfileSection({ user }: { user: User }) {
   return (
-    <div className="bg-black rounded-2xl flex flex-col gap-6 p-8 w-full">
+    <motion.div
+      className="bg-gray-900 rounded-2xl flex flex-col gap-6 p-8 w-full"
+      initial={{ opacity: 0, y: -100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+    >
       <div className="flex flex-row w-full gap-2">
         <div className="min-h-full w-[6px] rounded-full bg-teal-500"></div>
         <h1 className="text-2xl font-medium text-teal-500">Profile</h1>
@@ -35,25 +41,25 @@ export default function ProfileSection({ user }: { user: User }) {
             />
           </div>
           <div className="flex flex-row gap-6 w-full">
-            <div className="flex flex-col gap-1 bg-gray-900 rounded-xl py-2 px-4 w-full">
+            <div className="flex flex-col gap-1 bg-gray-800 rounded-xl py-2 px-4 w-full">
               <p className="text-sm font-medium text-gray-400">ID</p>
               <p className="text-base font-normal text-white">
                 {user.id.value ? user.id.value : "-"}
               </p>
             </div>
-            <div className="flex flex-col gap-1 bg-gray-900 rounded-xl py-2 px-4 w-full">
+            <div className="flex flex-col gap-1 bg-gray-800 rounded-xl py-2 px-4 w-full">
               <p className="text-sm font-medium text-gray-400">Username</p>
               <p className="text-base font-normal text-white">
                 {user.login.username}
               </p>
             </div>
-            <div className="flex flex-col gap-1 bg-gray-900 rounded-xl py-2 px-4 w-full">
+            <div className="flex flex-col gap-1 bg-gray-800 rounded-xl py-2 px-4 w-full">
               <p className="text-sm font-medium text-gray-400">City, Country</p>
               <p className="text-base font-normal text-white">{`${user.location.city}, ${user.location.country}`}</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

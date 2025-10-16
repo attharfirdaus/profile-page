@@ -43,7 +43,7 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-gray-800 min-h-screen flex flex-col gap-6 items-center justify-start py-10 px-80">
+    <div className="bg-[url(/profile-background.svg)] min-h-screen flex flex-col gap-6 items-center justify-start py-10 px-80">
       <ProfileSection user={user} />
       <PersonalInformationSection user={user}/>
       <AddressSection user={user}/>
