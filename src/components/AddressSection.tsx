@@ -1,4 +1,3 @@
-import { formatDateOfBirth } from "@/formatDateOfBirth";
 import { User } from "@/type";
 
 export default function AddressSection({ user }: { user: User }) {
